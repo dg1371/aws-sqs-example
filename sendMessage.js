@@ -19,7 +19,7 @@ var sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 var i;
 
-for (i=0; i < 10000; i++) {
+for (i=0; i < 100; i++) {
 
     var params;
     params = {
@@ -27,7 +27,7 @@ for (i=0; i < 10000; i++) {
         MessageAttributes: {
             "TicketNumber": {
                 DataType: "String",
-                StringValue: "The Whistler"
+                StringValue: "DHHD"+randomIntInc(1,9999999)
             },
             "Renter": {
                 DataType: "String",
@@ -38,7 +38,7 @@ for (i=0; i < 10000; i++) {
                 StringValue: randomIntInc(1,7)
             }
         },
-        MessageBody: "Information about current NY Times fiction bestseller for week of 12/11/2016.",
+        MessageBody: "Ticket Close Info",
         QueueUrl: "https://sqs.us-east-1.amazonaws.com/253140277330/SQS_QUEUE_NAME"
     };
 

@@ -13,7 +13,7 @@
 var AWS = require('aws-sdk');
 // Load credentials and set region from JSON file
 AWS.config.loadFromPath('./config.json');
-
+const config = require('./config/configPub.json');
 // Create SQS service object
 var sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
@@ -39,7 +39,7 @@ for (i=0; i < 100; i++) {
             }
         },
         MessageBody: "Ticket Close Info",
-        QueueUrl: "https://sqs.us-east-1.amazonaws.com/253140277330/SQS_QUEUE_NAME"
+        QueueUrl: config.QueueUrl
     };
 
 

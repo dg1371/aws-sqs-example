@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const config = require('./config/configPub.json');
 var temp;
 var temp2;
 const { Consumer } = require('sqs-consumer');
@@ -11,13 +12,13 @@ const request = require('request')
 PubNub = require('pubnub')
 AWS.config.loadFromPath('./config.json');
 var pubnub = new PubNub({
-    publishKey: 'pub-c-21aef803-e073-458d-8d81-eebc0185c6b8',
-    subscribeKey: 'sub-c-4c0c0d12-6042-11e9-92bf-0e148eae7978'
+    publishKey: config.pubKey1,
+    subscribeKey: config.subKey1
 });
 
 var pubnub2 = new PubNub({
-    publishKey: 'pub-c-3cb2e739-3463-47c0-a7bd-65b41ff2a7e8',
-    subscribeKey: 'sub-c-58d9bc54-cc29-11e8-b5de-7a9ddb77e130'
+    publishKey: config.pubKey2,
+    subscribeKey: config.subKey2
 });
 
 const app = Consumer.create({
@@ -69,7 +70,7 @@ const app = Consumer.create({
             channel: 'eon-bar',
             message: {
                 eon: {
-                    'data': temp2
+                    'Total': temp2
                 }
             }
         },
@@ -109,7 +110,7 @@ const app = Consumer.create({
                 channel: 'eon-gauge2',
                 message: {
                     eon: {
-                        'data': temp
+                        'Average': temp
                     }
                 }
             },

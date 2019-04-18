@@ -4,7 +4,8 @@ logs
 npm-debug.log*
 
 setEnvVal.sh
-
+config.json
+config/configPub.json
 # Runtime data
 pids
 *.pid

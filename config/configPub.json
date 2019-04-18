@@ -1,7 +1,0 @@
-{   "pubKey1": "pub-c-21aef803-e073-458d-8d81-eebc0185c6b8",
-    "subKey1": "sub-c-4c0c0d12-6042-11e9-92bf-0e148eae7978",
-    "pubKey2": "pub-c-3cb2e739-3463-47c0-a7bd-65b41ff2a7e8",
-    "subKey2": "sub-c-58d9bc54-cc29-11e8-b5de-7a9ddb77e130",
-    "QueueUrl": "https://sqs.us-east-1.amazonaws.com/253140277330/SQS_QUEUE_NAME"
-
-}

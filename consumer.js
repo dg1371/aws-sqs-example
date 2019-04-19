@@ -22,13 +22,14 @@ var pubnub2 = new PubNub({
 });
 
 const app = Consumer.create({
-    queueUrl: 'https://sqs.us-east-1.amazonaws.com/253140277330/SQS_QUEUE_NAME',
+    queueUrl: config.QueueUrl,
     messageAttributeNames: ['All'],
     handleMessage: async (message) => {
         console.log('name: ', message.MessageAttributes['TicketNumber']['StringValue']);
         console.log('authDays: ', message.MessageAttributes['AuthDays']['StringValue']);
         var name2 = message.MessageAttributes['TicketNumber']['StringValue'];
         var authDays5 = message.MessageAttributes['AuthDays']['StringValue'];
+        var shop = message.MessageAttributes['shop']['StringValue'];
         //console.log('Processing message: ', message.MessageAttributes);
         //var ddd = jQuery.parseJSON(JSON.stringify(message.MessageAttributes);
        //console.log("asdfsdfsdf " + ddd);
@@ -45,7 +46,8 @@ const app = Consumer.create({
             },
             body: {
                 name: name2,
-                authdays: authDays5
+                authdays: authDays5,
+                shop: shop
             }
         }, function(error, response, body) {
              console.log(response);

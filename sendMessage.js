@@ -20,6 +20,8 @@ var sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 var i;
 
 for (i=0; i < 100; i++) {
+    var words = ['Dans Shop', 'Wheels and More', 'Dent and Paint'];
+    var thing = words[Math.floor(Math.random() * words.length)];
 
     var params;
     params = {
@@ -32,6 +34,10 @@ for (i=0; i < 100; i++) {
             "Renter": {
                 DataType: "String",
                 StringValue: "John Grisham"
+            },
+            "shop": {
+                DataType: "String",
+                StringValue: thing
             },
             "AuthDays": {
                 DataType: "Number",
